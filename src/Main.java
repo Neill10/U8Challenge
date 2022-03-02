@@ -30,24 +30,27 @@ public class Main {
         }
 
         */
-
-        int row = 0;
-        for(String[] array : seatingChart)
-        {
-            int column = 0;
-            for(String x : array)
-            {
-                int randRow = (int)(Math.random() * 3);
-                int randColumn = (int)(Math.random() * 11);
-                if(seatingChart[randRow][randColumn] == null||!(seatingChart[randRow][randColumn].equals(x)))//people can still get the same seats
-                {
-                    String temp = seatingChart[randRow][randColumn];
-                    seatingChart[randRow][randColumn] = x;
-                    seatingChart[row][column] = temp;
+        while(allRandNames(seatingChart) == false) {
+            int row = 0;
+            for (String[] array : seatingChart) {
+                int column = 0;
+                for (String x : array) {
+                    int randRow = (int) (Math.random() * 3);
+                    int randColumn = (int) (Math.random() * 11);
+                    while (randRow == 0 && randColumn == 10 || randColumn == 11) {
+                        randRow = (int) (Math.random() * 3);
+                        randColumn = (int) (Math.random() * 11);
+                    }
+                    if (!(seatingChart[randRow][randColumn] == null) && !(seatingChart[randRow][randColumn].equals(x)))//people can still get the same seats
+                    {
+                        String temp = seatingChart[randRow][randColumn];
+                        seatingChart[randRow][randColumn] = x;
+                        seatingChart[row][column] = temp;
+                    }
+                    column++;
                 }
-                column++;
+                row++;
             }
-            row++;
         }
 
         for(String[] i : seatingChart)
