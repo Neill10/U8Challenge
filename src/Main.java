@@ -6,28 +6,29 @@ public class Main {
                 {"Cheng Han", "Qihan", "Kevin", "Ryan", "Justin Liu", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
 
-        while(allRandNames(seatingChart) == false) {
-            int row = 0;
-            for (String[] array : seatingChart) {
-                int column = 0;
-                for (String x : array) {
-                    if (row != 0 && column != 10 || row != 0 && column != 11) {
-                        int randRow = (int) (Math.random() * 3);
-                        int randColumn = (int) (Math.random() * 12);
-                        while (randRow == 0 && randColumn == 10 || randColumn == 11) {
-                            randRow = (int) (Math.random() * 3);
-                            randColumn = (int) (Math.random() * 12);
+        while(newNeighbor(seatingChart) == false) {
+            while (allRandNames(seatingChart) == false) {
+                int row = 0;
+                for (String[] array : seatingChart) {
+                    int column = 0;
+                    for (String x : array) {
+                        if (row != 0 && column != 10 || row != 0 && column != 11) {
+                            int randRow = (int) (Math.random() * 3);
+                            int randColumn = (int) (Math.random() * 12);
+                            while (randRow == 0 && randColumn == 10 || randColumn == 11) {
+                                randRow = (int) (Math.random() * 3);
+                                randColumn = (int) (Math.random() * 12);
+                            }
+                            if ((seatingChart[randRow][randColumn] != null) && !(seatingChart[randRow][randColumn].equals(x))) {
+                                String temp = seatingChart[randRow][randColumn];
+                                seatingChart[randRow][randColumn] = x;
+                                seatingChart[row][column] = temp;
+                            }
                         }
-                        if ((seatingChart[randRow][randColumn] != null) && !(seatingChart[randRow][randColumn].equals(x)))
-                        {
-                            String temp = seatingChart[randRow][randColumn];
-                            seatingChart[randRow][randColumn] = x;
-                            seatingChart[row][column] = temp;
-                        }
+                        column++;
                     }
-                    column++;
+                    row++;
                 }
-                row++;
             }
         }
 
@@ -42,7 +43,7 @@ public class Main {
         System.out.println(allRandNames(seatingChart));
 
     }
-    /*
+
     static private boolean newNeighbor(String[][] seatingChart)
     {
         String[][] seatingChart2 = {
@@ -53,21 +54,30 @@ public class Main {
 
         for(int i = 0; i < seatingChart.length;i++)//3 rows
         {
-
-            for(int x = 1; x < seatingChart[0].length;x++)//starts at Angie,Raymond,Qihan
+            for(int x = 1; x < seatingChart[0].length - 1;x++)//starts at Angie,Raymond,Qihan
             {
                 String previous = seatingChart[i][x-1];
                 String after = seatingChart[i][x+1];
-                for(String[] str : seatingChart)
-                {
-
+                if (previous != null && after != null && seatingChart[i][x] != null) {//prevents null values
+                    for (int a = 0; a < seatingChart.length; a++)//3 rows
+                    {
+                        for (int b = 1; b < seatingChart[0].length - 1; b++) {
+                            if (a == i && x == b) {
+                                String previous2 = seatingChart2[a][b - 1];
+                                String after2 = seatingChart2[a][b + 1];
+                                if (previous.equals(previous2) || after.equals(after2)) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
                 }
-
             }
         }
+        return true;
     }
 
-     */
+
 
     static private boolean allRandNames(String[][] seatingChart)
     {
