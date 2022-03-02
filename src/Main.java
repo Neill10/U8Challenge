@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         String[][] seatingChart = {
                 {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao Huang", "Nicole", "Jennifer", "Michelle",null, null},
-                {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley", null, "Rely"},
+                {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley","N/A", "Rely"},
                 {"Cheng Han", "Qihan", "Kevin", "Ryan", "Justin Liu", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
 
@@ -35,17 +35,22 @@ public class Main {
             for (String[] array : seatingChart) {
                 int column = 0;
                 for (String x : array) {
-                    int randRow = (int) (Math.random() * 3);
-                    int randColumn = (int) (Math.random() * 11);
-                    while (randRow == 0 && randColumn == 10 || randColumn == 11) {
-                        randRow = (int) (Math.random() * 3);
-                        randColumn = (int) (Math.random() * 11);
-                    }
-                    if (!(seatingChart[randRow][randColumn] == null) && !(seatingChart[randRow][randColumn].equals(x)))//people can still get the same seats
-                    {
-                        String temp = seatingChart[randRow][randColumn];
-                        seatingChart[randRow][randColumn] = x;
-                        seatingChart[row][column] = temp;
+                    if (row != 0 && column != 10 || row != 0 && column != 11) {
+                        int randRow = (int) (Math.random() * 3);
+                        int randColumn = (int) (Math.random() * 12);
+                        while (randRow == 0 && randColumn == 10 || randColumn == 11) {
+                            randRow = (int) (Math.random() * 3);
+                            randColumn = (int) (Math.random() * 12);
+                        }
+                        System.out.println("bruh "+ row + "  " + column);
+                        System.out.println("Hmmm " +randRow + "  " + randColumn);
+
+                        if ((seatingChart[randRow][randColumn] != null) && !(seatingChart[randRow][randColumn].equals(x)))
+                        {
+                            String temp = seatingChart[randRow][randColumn];
+                            seatingChart[randRow][randColumn] = x;
+                            seatingChart[row][column] = temp;
+                        }
                     }
                     column++;
                 }
@@ -69,7 +74,7 @@ public class Main {
     {
         String[][] seatingChart2 = {
                 {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao Huang", "Nicole", "Jennifer", "Michelle",null, null},
-                {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley", null, "Rely"},
+                {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley", "N/A", "Rely"},
                 {"Cheng Han", "Qihan", "Kevin", "Ryan", "Justin Liu", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
         int row = 0;
