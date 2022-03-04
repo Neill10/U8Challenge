@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         String[][] seatingChart = {
-                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao Huang", "Nicole", "Jennifer", "Michelle"},
+                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao", "Nicole", "Jennifer", "Michelle"},
                 {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley","N/A", "Rely"},
                 {"ChengHan", "Qihan", "Kevin", "Ryan", "Justin", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
@@ -47,7 +47,7 @@ public class Main {
     static private boolean newNeighbor(String[][] seatingChart)
     {
         String[][] seatingChart2 = {
-                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao Huang", "Nicole", "Jennifer", "Michelle"},
+                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao", "Nicole", "Jennifer", "Michelle"},
                 {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley", "N/A", "Rely"},
                 {"ChengHan", "Qihan", "Kevin", "Ryan", "Justin", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
@@ -82,9 +82,9 @@ public class Main {
     static private boolean allRandNames(String[][] seatingChart)
     {
         String[][] seatingChart2 = {
-                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao Huang", "Nicole", "Jennifer", "Michelle",null, null},
+                {"Moiz", "Angie", "Taran", "Kelvin", "Kyler", "David", "WenHao", "Nicole", "Jennifer", "Michelle",null, null},
                 {"Beckett", "Raymond", "Lucy", "Apramjot", "Justin Lema", "Sam", "Tristan", "Pradeep", "Mohammad", "Haley", "N/A", "Rely"},
-                {"Cheng Han", "Qihan", "Kevin", "Ryan", "Justin Liu", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
+                {"ChengHan", "Qihan", "Kevin", "Ryan", "Justin", "Jeffrey", "Danny", "Elliot", "Benson", "Fiona", "Neil", "Kaitlyn"}
         };
         int row = 0;
         for(String[] array : seatingChart2)
